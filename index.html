@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swift Slots | Real-Time Service Booking Marketplace</title>
+    <meta
+      name="description"
+      content="Swift Slots connects busy people with local service pros while helping businesses fill last-minute openings through a streamlined booking, checkout, and analytics platform."
+    />
+    <meta property="og:title" content="Swift Slots | Real-Time Service Booking Marketplace" />
+    <meta
+      property="og:description"
+      content="Deliver instant bookings to customers and recover lost revenue with Swift Slots' onboarding, scheduling, checkout, and performance dashboards."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://swiftslots.example.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+      integrity="sha384-ycg2YkdE+5EYXPLkZX31lrT7xvFeoJEB6Digw1VE3DybZ0SqnX+0Gooy2cuglRez"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+        scroll-behavior: smooth;
+      }
+      .navbar.is-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+      }
+      .navbar-brand .button.is-primary {
+        margin-left: 1rem;
+      }
+      section {
+        padding: 4.5rem 1.5rem;
+      }
+      .hero {
+        padding-top: 6rem;
+      }
+      .hero .hero-body {
+        padding: 3rem 1.5rem;
+      }
+      .icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        background: rgba(49, 132, 255, 0.08);
+        margin-bottom: 0.75rem;
+      }
+      .mock-card {
+        border-radius: 12px;
+        box-shadow: 0 20px 60px rgba(16, 30, 54, 0.08);
+        border: 1px solid rgba(33, 37, 41, 0.08);
+      }
+      .mock-card .card-content {
+        padding: 1.75rem;
+      }
+      .flow-screen {
+        border-radius: 12px;
+        border: 1px solid rgba(33, 37, 41, 0.08);
+        padding: 1.5rem;
+        background: linear-gradient(145deg, #ffffff, #f7faff);
+        box-shadow: 0 15px 45px rgba(17, 24, 39, 0.08);
+      }
+      .steps .step-item.is-active .step-title {
+        font-weight: 600;
+      }
+      .comparison-table td,
+      .comparison-table th {
+        vertical-align: top;
+      }
+      .faq .card {
+        border-radius: 12px;
+      }
+      .footer {
+        padding: 3rem 1.5rem 2rem;
+      }
+      @media screen and (min-width: 1024px) {
+        .hero .hero-body {
+          padding: 4.5rem 0;
+        }
+        section {
+          padding: 6rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar is-spaced is-sticky" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="#hero" aria-label="Swift Slots home">
+            <span class="has-text-weight-bold">Swift Slots</span>
+          </a>
+          <a
+            class="navbar-burger"
+            role="button"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="main-nav"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+          <a class="button is-primary is-rounded is-hidden-desktop" href="#pricing" aria-label="Start free trial">
+            Get Started
+          </a>
+        </div>
+        <div id="main-nav" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item" href="#social-proof">Social Proof</a>
+            <a class="navbar-item" href="#value-users">For Users</a>
+            <a class="navbar-item" href="#value-businesses">For Businesses</a>
+            <a class="navbar-item" href="#features">Features</a>
+            <a class="navbar-item" href="#gallery">Product Flow</a>
+            <a class="navbar-item" href="#comparison">Comparison</a>
+            <a class="navbar-item" href="#pricing">Pricing</a>
+            <a class="navbar-item" href="#faq">FAQ</a>
+            <div class="navbar-item">
+              <a class="button is-primary is-rounded" href="#pricing" aria-label="Start using Swift Slots">
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero is-fullheight-with-navbar" id="hero">
+        <div class="container">
+          <div class="hero-body">
+            <div class="columns is-vcentered is-variable is-8">
+              <div class="column is-6">
+                <h1 class="title is-1 is-spaced">Fill every open slot before it goes stale.</h1>
+                <p class="subtitle is-4">The instant marketplace that lets locals book cancelled appointments while businesses recover lost revenue.</p>
+                <p class="mb-5 has-text-weight-semibold">Elevator pitch: Swift Slots turns last-minute availability into guaranteed revenue for service brands and guaranteed access for busy customers.</p>
+                <form class="box" id="hero-form" novalidate aria-label="Request a demo form">
+                  <div class="field">
+                    <label class="label" for="hero-email">Work email</label>
+                    <div class="control has-icons-left">
+                      <input
+                        id="hero-email"
+                        class="input"
+                        type="email"
+                        name="email"
+                        placeholder="you@company.com"
+                        required
+                        aria-required="true"
+                      />
+                      <span class="icon is-small is-left" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5">
+                          <path d="M4 6.5 10.8 11a3 3 0 0 0 2.4 0L20 6.5" />
+                          <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
+                        </svg>
+                      </span>
+                    </div>
+                    <p class="help is-danger is-hidden" id="hero-email-error">Please enter a valid email.</p>
+                  </div>
+                  <div class="field is-grouped">
+                    <p class="control">
+                      <button class="button is-primary" type="submit">Start free</button>
+                    </p>
+                    <p class="control">
+                      <a class="button is-light" href="#gallery">See how bookings flow</a>
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div class="column is-6">
+                <div class="mock-card card" role="presentation" aria-hidden="true">
+                  <header class="card-header">
+                    <p class="card-header-title">Real-time availability snapshot</p>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <p class="has-text-grey">Instantly showcase cancelled openings to nearby members.</p>
+                      <div class="columns is-mobile is-multiline">
+                        <div class="column is-half">
+                          <article class="message is-primary">
+                            <div class="message-body">
+                              <p class="has-text-weight-semibold">Today, 2:00 PM</p>
+                              <p>45-minute massage • Downtown Spa</p>
+                              <button class="button is-small is-link is-light mt-2">Book now</button>
+                            </div>
+                          </article>
+                        </div>
+                        <div class="column is-half">
+                          <article class="message is-link is-light">
+                            <div class="message-body">
+                              <p class="has-text-weight-semibold">Today, 4:15 PM</p>
+                              <p>Dental cleaning • BrightSmile</p>
+                              <button class="button is-small is-link mt-2">Reserve</button>
+                            </div>
+                          </article>
+                        </div>
+                        <div class="column is-full">
+                          <progress class="progress is-small is-success" value="76" max="100">76%</progress>
+                          <p class="is-size-7 has-text-grey">Citywide fill rate this week</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="social-proof" aria-labelledby="social-proof-title">
+        <div class="container">
+          <h2 id="social-proof-title" class="title is-4 has-text-centered">Trusted by operators who cannot afford empty seats</h2>
+          <div class="columns is-multiline is-variable is-6 is-vcentered mt-5">
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box has-text-centered" role="figure" aria-label="Partner: Skyline Wellness">
+                <p class="is-size-5 has-text-weight-semibold">Skyline Wellness</p>
+                <p class="is-size-7 has-text-grey">98% occupancy streak</p>
+              </div>
+            </div>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box has-text-centered" role="figure" aria-label="Partner: Pulse Health">
+                <p class="is-size-5 has-text-weight-semibold">Pulse Health</p>
+                <p class="is-size-7 has-text-grey">+22% repeat visits</p>
+              </div>
+            </div>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box has-text-centered" role="figure" aria-label="Partner: The Groomery">
+                <p class="is-size-5 has-text-weight-semibold">The Groomery</p>
+                <p class="is-size-7 has-text-grey">Fully booked weekends</p>
+              </div>
+            </div>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box has-text-centered" role="figure" aria-label="Partner: Peak Performance PT">
+                <p class="is-size-5 has-text-weight-semibold">Peak Performance PT</p>
+                <p class="is-size-7 has-text-grey">12 min avg. confirmation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="value-users" aria-labelledby="value-users-title" class="has-background-light">
+        <div class="container">
+          <h2 id="value-users-title" class="title is-3 has-text-centered">Why locals book through Swift Slots</h2>
+          <div class="columns is-multiline mt-5">
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="box">
+                <h3 class="title is-5">Instant openings</h3>
+                <p>See live cancellations the second they happen, not the next day.</p>
+              </div>
+            </div>
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="box">
+                <h3 class="title is-5">Verified pros</h3>
+                <p>Every provider is vetted, credentialed, and reviewed in-platform.</p>
+              </div>
+            </div>
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="box">
+                <h3 class="title is-5">One-tap checkout</h3>
+                <p>Book, pay, and receive confirmations in under a minute.</p>
+              </div>
+            </div>
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="box">
+                <h3 class="title is-5">Loyalty perks</h3>
+                <p>Earn credit on every visit and save it for high-demand time slots.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="value-businesses" aria-labelledby="value-businesses-title">
+        <div class="container">
+          <h2 id="value-businesses-title" class="title is-3 has-text-centered">What operators gain</h2>
+          <div class="columns is-multiline mt-5">
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box">
+                <h3 class="title is-5">Recover cancellations</h3>
+                <p>Broadcast openings to nearby members automatically and backfill your schedule in minutes.</p>
+              </div>
+            </div>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box">
+                <h3 class="title is-5">Dynamic pricing</h3>
+                <p>Set surge discounts for idle hours and premium rates for peak demand without lifting a finger.</p>
+              </div>
+            </div>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box">
+                <h3 class="title is-5">Unified payments</h3>
+                <p>Instant payouts, automated invoicing, and no more end-of-day reconciliation marathons.</p>
+              </div>
+            </div>
+            <div class="column is-one-quarter-desktop is-half-tablet">
+              <div class="box">
+                <h3 class="title is-5">Actionable analytics</h3>
+                <p>Monitor fill rates, campaign impact, and staff performance from one live dashboard.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" aria-labelledby="features-title" class="has-background-light">
+        <div class="container">
+          <h2 id="features-title" class="title is-3 has-text-centered">Features engineered for conversion</h2>
+          <div class="columns is-multiline is-variable is-6 mt-5">
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="card">
+                <div class="card-content">
+                  <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="1.6">
+                      <path d="M3 5h18" />
+                      <path d="M5 3v4" />
+                      <path d="M19 3v4" />
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M8 13h3v5H8zM13 11h3v7h-3z" />
+                    </svg>
+                  </div>
+                  <h3 class="title is-5">Live inventory sync</h3>
+                  <p>Connect your calendar, POS, and CRM so any change instantly updates across every channel.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="card">
+                <div class="card-content">
+                  <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="1.6">
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M12 7v5l3 3" />
+                    </svg>
+                  </div>
+                  <h3 class="title is-5">Automated waitlists</h3>
+                  <p>Trigger SMS alerts the moment a slot frees up and convert waitlisters in seconds.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="card">
+                <div class="card-content">
+                  <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="1.6">
+                      <path d="M4 19h16" />
+                      <path d="M5 10h14v5H5z" />
+                      <path d="M9 10V5h6v5" />
+                    </svg>
+                  </div>
+                  <h3 class="title is-5">Conversion experiments</h3>
+                  <p>Run A/B promotions on copy, pricing, and bundles without engineering tickets.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half-tablet is-one-quarter-desktop">
+              <div class="card">
+                <div class="card-content">
+                  <div class="icon-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3273dc" stroke-width="1.6">
+                      <path d="M21 10v10H3V4h11" />
+                      <path d="M7 12h4" />
+                      <path d="M7 16h6" />
+                      <path d="m15 5 2 2 5-5" />
+                    </svg>
+                  </div>
+                  <h3 class="title is-5">Compliance-ready</h3>
+                  <p>HIPAA and PCI workflows baked in, so regulated teams move fast without risk.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+          <div class="level">
+            <div class="level-left">
+              <div>
+                <h2 id="gallery-title" class="title is-3">UI flow gallery</h2>
+                <p class="subtitle is-5">Follow the full booking lifecycle across one cohesive experience.</p>
+              </div>
+            </div>
+            <div class="level-right">
+              <div class="tabs is-toggle is-toggle-rounded" role="tablist" aria-label="Persona filter">
+                <ul>
+                  <li class="is-active" data-flow-filter="all">
+                    <a href="#" aria-label="Show all flows">
+                      <span>All</span>
+                    </a>
+                  </li>
+                  <li data-flow-filter="user">
+                    <a href="#" aria-label="Show user-facing flows">
+                      <span>Users</span>
+                    </a>
+                  </li>
+                  <li data-flow-filter="business">
+                    <a href="#" aria-label="Show business-facing flows">
+                      <span>Businesses</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns is-multiline is-variable is-6">
+            <div class="column is-half" data-flow-category="user" id="flow-onboarding">
+              <div class="flow-screen" role="group" aria-labelledby="flow-onboarding-title">
+                <h3 id="flow-onboarding-title" class="title is-4">Onboarding</h3>
+                <p class="subtitle is-6">Frictionless entry guided by progressive profiling.</p>
+                <div class="columns is-variable is-3">
+                  <div class="column is-half">
+                    <div class="field">
+                      <label class="label" for="onboard-email">Email address</label>
+                      <div class="control">
+                        <input class="input" type="email" id="onboard-email" placeholder="alex@swiftslots.com" />
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="onboard-password">Password</label>
+                      <div class="control">
+                        <input class="input" type="password" id="onboard-password" placeholder="••••••••" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column is-half">
+                    <div class="field">
+                      <label class="label" for="role-select">I am a</label>
+                      <div class="control">
+                        <div class="select is-fullwidth">
+                          <select id="role-select" aria-label="Role selection">
+                            <option>Local seeker</option>
+                            <option>Business manager</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Progress</label>
+                      <ul class="steps is-small has-content-centered">
+                        <li class="step-item is-completed">
+                          <div class="step-marker" aria-hidden="true">1</div>
+                          <div class="step-details"><p class="step-title">Account</p></div>
+                        </li>
+                        <li class="step-item is-active">
+                          <div class="step-marker" aria-hidden="true">2</div>
+                          <div class="step-details"><p class="step-title">Preferences</p></div>
+                        </li>
+                        <li class="step-item">
+                          <div class="step-marker" aria-hidden="true">3</div>
+                          <div class="step-details"><p class="step-title">Verify</p></div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <button class="button is-link is-fullwidth" type="button">Complete setup</button>
+              </div>
+            </div>
+
+            <div class="column is-half" data-flow-category="user" id="flow-booking">
+              <div class="flow-screen" role="group" aria-labelledby="flow-booking-title">
+                <h3 id="flow-booking-title" class="title is-4">Booking</h3>
+                <p class="subtitle is-6">Transparent availability across every provider.</p>
+                <div class="columns is-variable is-3">
+                  <div class="column is-half">
+                    <div class="field">
+                      <label class="label" for="booking-date">Choose date</label>
+                      <input class="input" type="date" id="booking-date" />
+                    </div>
+                    <div class="field">
+                      <label class="label" for="service-select">Service</label>
+                      <div class="select is-fullwidth">
+                        <select id="service-select" aria-label="Service selector">
+                          <option>Deep tissue massage</option>
+                          <option>Teeth whitening</option>
+                          <option>Personal training</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="provider-search">Provider</label>
+                      <div class="control has-icons-left">
+                        <input class="input" type="search" id="provider-search" placeholder="Search providers" />
+                        <span class="icon is-left" aria-hidden="true">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <circle cx="10" cy="10" r="7" />
+                            <path d="m21 21-6-6" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column is-half">
+                    <table class="table is-fullwidth is-striped" aria-label="Availability grid">
+                      <thead>
+                        <tr>
+                          <th>Provider</th>
+                          <th>1 PM</th>
+                          <th>3 PM</th>
+                          <th>5 PM</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Harper Wellness</td>
+                          <td><span class="tag is-success">Open</span></td>
+                          <td><span class="tag is-danger is-light">Hold</span></td>
+                          <td><span class="tag is-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>ZenLab Spa</td>
+                          <td><span class="tag is-light">Booked</span></td>
+                          <td><span class="tag is-success">Open</span></td>
+                          <td><span class="tag is-success">Open</span></td>
+                        </tr>
+                        <tr>
+                          <td>Align PT</td>
+                          <td><span class="tag is-warning">Waitlist</span></td>
+                          <td><span class="tag is-success">Open</span></td>
+                          <td><span class="tag is-light">Booked</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <button class="button is-primary is-fullwidth" type="button">Confirm appointment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column is-half" data-flow-category="user" id="flow-checkout">
+              <div class="flow-screen" role="group" aria-labelledby="flow-checkout-title">
+                <h3 id="flow-checkout-title" class="title is-4">Checkout</h3>
+                <p class="subtitle is-6">Secure payments with loyalty built-in.</p>
+                <div class="columns is-variable is-3">
+                  <div class="column is-half">
+                    <article class="box" aria-label="Order summary">
+                      <p class="has-text-weight-semibold">Order summary</p>
+                      <p class="is-size-7 has-text-grey">Deep tissue massage • 60 minutes</p>
+                      <p class="is-size-6 mt-3"><span class="has-text-weight-semibold">Provider:</span> ZenLab Spa</p>
+                      <p class="is-size-6">Date: July 22, 3:00 PM</p>
+                      <p class="is-size-6">Subtotal: $110</p>
+                      <div class="field mt-3">
+                        <label class="label" for="promo-code">Promo code</label>
+                        <div class="control">
+                          <input class="input" type="text" id="promo-code" placeholder="ENTERPROMO" />
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="column is-half">
+                    <div class="field">
+                      <label class="label" for="card-name">Name on card</label>
+                      <div class="control">
+                        <input class="input" type="text" id="card-name" placeholder="Alex Morgan" />
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="card-number">Card number</label>
+                      <div class="control">
+                        <input class="input" type="text" id="card-number" inputmode="numeric" placeholder="4242 4242 4242 4242" />
+                      </div>
+                    </div>
+                    <div class="field is-grouped">
+                      <div class="control is-expanded">
+                        <label class="label" for="card-exp">Expiry</label>
+                        <input class="input" type="text" id="card-exp" placeholder="08 / 26" />
+                      </div>
+                      <div class="control is-expanded">
+                        <label class="label" for="card-cvc">CVC</label>
+                        <input class="input" type="text" id="card-cvc" placeholder="123" />
+                      </div>
+                    </div>
+                    <button class="button is-success is-fullwidth" type="button">Pay &amp; confirm</button>
+                    <article class="message is-success mt-4" aria-live="polite">
+                      <div class="message-header">
+                        <p>Confirmation</p>
+                      </div>
+                      <div class="message-body">
+                        Appointment secured. Receipt and calendar invite sent.
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column is-half" data-flow-category="business" id="flow-dashboard">
+              <div class="flow-screen" role="group" aria-labelledby="flow-dashboard-title">
+                <h3 id="flow-dashboard-title" class="title is-4">Dashboard</h3>
+                <p class="subtitle is-6">See occupancy, revenue, and bottlenecks at a glance.</p>
+                <div class="columns is-variable is-4">
+                  <div class="column is-half">
+                    <div class="columns is-mobile">
+                      <div class="column">
+                        <div class="box has-background-link-light">
+                          <p class="is-size-7 has-text-weight-semibold">Fill rate</p>
+                          <p class="title is-4">92%</p>
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="box has-background-warning-light">
+                          <p class="is-size-7 has-text-weight-semibold">Recovered revenue</p>
+                          <p class="title is-4">$18.2K</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box">
+                      <p class="is-size-7 has-text-weight-semibold">Weekly conversions</p>
+                      <progress class="progress is-info" value="65" max="100">65%</progress>
+                      <p class="is-size-7 has-text-grey">▲ 8% vs last week</p>
+                    </div>
+                  </div>
+                  <div class="column is-half">
+                    <table class="table is-fullwidth" aria-label="Recent activity">
+                      <thead>
+                        <tr>
+                          <th>Recent activity</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Waitlist filled: 4:30 PM facial</td>
+                          <td><span class="tag is-success">Booked</span></td>
+                        </tr>
+                        <tr>
+                          <td>Team alert: Provider running late</td>
+                          <td><span class="tag is-warning is-light">Action</span></td>
+                        </tr>
+                        <tr>
+                          <td>Review received: 5 stars</td>
+                          <td><span class="tag is-link is-light">New</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <article class="message is-link is-light" aria-label="Notification">
+                      <div class="message-body">
+                        Next best action: Launch 15% reactivation campaign to lapsed members.
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comparison" aria-labelledby="comparison-title" class="has-background-light">
+        <div class="container">
+          <h2 id="comparison-title" class="title is-3 has-text-centered">Why both sides win</h2>
+          <table class="table is-fullwidth is-hoverable comparison-table" aria-describedby="comparison-caption">
+            <caption id="comparison-caption" class="has-text-weight-semibold">Comparison of outcomes for users and businesses.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Outcome</th>
+                <th scope="col">Users</th>
+                <th scope="col">Businesses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Time saved</th>
+                <td>Find and confirm a slot in under 90 seconds.</td>
+                <td>Automate outreach instead of manual calling lists.</td>
+              </tr>
+              <tr>
+                <th scope="row">Financial impact</th>
+                <td>Transparent pricing with loyalty credits every booking.</td>
+                <td>Recover up to 28% revenue otherwise lost to no-shows.</td>
+              </tr>
+              <tr>
+                <th scope="row">Experience</th>
+                <td>One wallet, cross-vertical service discovery, universal calendar sync.</td>
+                <td>Unified dashboard for staffing, campaigns, and customer feedback.</td>
+              </tr>
+              <tr>
+                <th scope="row">Support</th>
+                <td>Live concierge when plans change or you need advice.</td>
+                <td>24/7 yield management experts and onboarding managers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="pricing" aria-labelledby="pricing-title">
+        <div class="container">
+          <div class="columns is-vcentered is-variable is-8">
+            <div class="column is-5">
+              <h2 id="pricing-title" class="title is-3">Flexible pricing built for scalability</h2>
+              <p class="subtitle is-5">Start free, prove the ROI, then scale with volume-based tiers and dedicated support.</p>
+              <a class="button is-primary is-medium" href="#hero" aria-label="Contact sales">Contact sales</a>
+            </div>
+            <div class="column is-7">
+              <div class="columns">
+                <div class="column">
+                  <div class="card">
+                    <div class="card-content">
+                      <p class="title is-4">Launch</p>
+                      <p class="subtitle is-6">$0/mo + 4% per booking</p>
+                      <ul>
+                        <li>Up to 3 locations</li>
+                        <li>Standard support</li>
+                        <li>Automated reminders</li>
+                      </ul>
+                      <a class="button is-link is-light is-fullwidth mt-4" href="#hero">Start free</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="card is-primary">
+                    <div class="card-content">
+                      <p class="title is-4">Scale</p>
+                      <p class="subtitle is-6">Custom pricing</p>
+                      <ul>
+                        <li>Unlimited locations</li>
+                        <li>Dedicated strategist</li>
+                        <li>API access &amp; SSO</li>
+                      </ul>
+                      <a class="button is-primary is-inverted is-fullwidth mt-4" href="#hero">Fill last-minute slots</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" aria-labelledby="faq-title" class="faq has-background-light">
+        <div class="container">
+          <h2 id="faq-title" class="title is-3 has-text-centered">Frequently asked questions</h2>
+          <div class="columns is-multiline is-variable is-5 mt-5">
+            <div class="column is-half">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title is-6">How fast can we go live?</p>
+                  <p>Most teams import data and launch within 10 business days with help from our onboarding strategists.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title is-6">Which services work best?</p>
+                  <p>Health, wellness, beauty, home, and professional services using appointment-based scheduling see the highest uplift.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title is-6">Do you integrate with our tools?</p>
+                  <p>Yes. We sync with leading CRMs, calendars, POS systems, and support open APIs for custom workflows.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title is-6">How are payments handled?</p>
+                  <p>Funds settle directly into your merchant account within two business days, with instant payouts available.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title is-6">What about no-shows?</p>
+                  <p>Smart reminders, pre-payment rules, and auto waitlist filling reduce no-shows by an average of 37%.</p>
+                </div>
+              </div>
+            </div>
+            <div class="column is-half">
+              <div class="card">
+                <div class="card-content">
+                  <p class="title is-6">Is customer support included?</p>
+                  <p>Every plan includes 24/7 chat and phone support plus a knowledge base for your team.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="columns is-variable is-5">
+          <div class="column is-one-third">
+            <p class="title is-5">Swift Slots</p>
+            <p>Realtime booking infrastructure for modern service brands.</p>
+          </div>
+          <div class="column is-one-third">
+            <p class="title is-6">Company</p>
+            <ul>
+              <li><a href="#hero">About</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#faq">Support</a></li>
+            </ul>
+          </div>
+          <div class="column is-one-third">
+            <p class="title is-6">Contact</p>
+            <p>
+              <a href="mailto:hello@swiftslots.com" aria-label="Email Swift Slots">hello@swiftslots.com</a><br />
+              <span>123 Market Street, Suite 400, San Francisco, CA</span>
+            </p>
+          </div>
+        </div>
+        <div class="has-text-centered has-text-grey is-size-7 mt-5">
+          © <span id="year"></span> Swift Slots Technologies Inc. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const navbarBurger = document.querySelector('.navbar-burger');
+      const navbarMenu = document.getElementById('main-nav');
+      if (navbarBurger && navbarMenu) {
+        navbarBurger.addEventListener('click', () => {
+          const expanded = navbarBurger.getAttribute('aria-expanded') === 'true';
+          navbarBurger.classList.toggle('is-active');
+          navbarMenu.classList.toggle('is-active');
+          navbarBurger.setAttribute('aria-expanded', String(!expanded));
+        });
+      }
+
+      const links = document.querySelectorAll('.navbar-menu a.navbar-item, .navbar-brand .navbar-item, .navbar .button');
+      links.forEach((link) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+            if (navbarMenu) {
+              navbarMenu.classList.remove('is-active');
+              navbarBurger?.classList.remove('is-active');
+              navbarBurger?.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+      });
+
+      const sections = document.querySelectorAll('main section');
+      const navItems = document.querySelectorAll('.navbar-menu a.navbar-item');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navItems.forEach((navItem) => {
+                navItem.classList.toggle('is-active', navItem.getAttribute('href') === `#${entry.target.id}`);
+              });
+            }
+          });
+        },
+        { threshold: 0.6 }
+      );
+      sections.forEach((section) => observer.observe(section));
+
+      const heroForm = document.getElementById('hero-form');
+      const heroEmail = document.getElementById('hero-email');
+      const heroEmailError = document.getElementById('hero-email-error');
+      heroForm?.addEventListener('submit', (event) => {
+        if (!heroEmail.checkValidity()) {
+          event.preventDefault();
+          heroEmailError.classList.remove('is-hidden');
+          heroEmail.classList.add('is-danger');
+          heroEmail.focus();
+        } else {
+          heroEmailError.classList.add('is-hidden');
+          heroEmail.classList.remove('is-danger');
+        }
+      });
+
+      const tabList = document.querySelectorAll('[data-flow-filter]');
+      const flowCards = document.querySelectorAll('[data-flow-category]');
+      tabList.forEach((tab) => {
+        tab.addEventListener('click', (event) => {
+          event.preventDefault();
+          tabList.forEach((item) => item.classList.remove('is-active'));
+          tab.classList.add('is-active');
+          const filter = tab.getAttribute('data-flow-filter');
+          flowCards.forEach((card) => {
+            const category = card.getAttribute('data-flow-category');
+            if (filter === 'all' || filter === category) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      const year = document.getElementById('year');
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+    </script>
+  </body>
+</html>
