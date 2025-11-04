@@ -1,11 +1,276 @@
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
+  background: #f5f7fb;
+  color: #1f2933;
 }
 
-.notification {
-  margin-top: 2rem;
+.swift-slots .hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top right, #ff8aee 0%, #734bff 40%, #2b1b7d 100%);
+  color: #fff;
+}
+
+.hero-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 60%),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.2), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.18), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 1;
+}
+
+.tag.is-light {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+.hero-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+}
+
+.hero-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.floating-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.schedule-card {
+  border-radius: 1.25rem;
+  box-shadow: 0 28px 45px rgba(27, 25, 71, 0.45);
+  border: none;
+  overflow: hidden;
+}
+
+.schedule-card .card-header {
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.schedule-card .card-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 0 0 1.25rem 1.25rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.timeline-item {
+  color: #fff;
+}
+
+.timeline-item .time {
+  font-weight: 700;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-item .activity {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.is-success {
+  background: rgba(59, 255, 166, 0.25);
+}
+
+.badge.is-warning {
+  background: rgba(255, 201, 75, 0.25);
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 2rem;
+  background: #ffffff;
+  color: #1f2933;
+  border-radius: 1rem;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 18px 35px rgba(31, 41, 51, 0.18);
+}
+
+.feature-section .box.highlight {
+  border-radius: 1.25rem;
+  box-shadow: none;
+  border: 1px solid rgba(115, 75, 255, 0.15);
+  background: #ffffff;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-section .box.highlight:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 35px rgba(115, 75, 255, 0.12);
+}
+
+.feature-section .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.how-it-works {
+  background: #fff;
+}
+
+.steps {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.step {
+  background: #f0f3ff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(115, 75, 255, 0.08);
+}
+
+.step-number {
+  position: absolute;
+  top: -1.25rem;
+  left: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #ff8aee, #734bff);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(115, 75, 255, 0.25);
+}
+
+.business-benefits {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(244, 240, 255, 0.7));
+}
+
+.benefit-list {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.benefit-list li {
+  font-weight: 500;
+}
+
+.business-card {
+  border-radius: 1.5rem;
+  border: none;
+  box-shadow: 0 25px 45px rgba(115, 75, 255, 0.18);
+}
+
+.pricing-pill {
+  background: rgba(115, 75, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(115, 75, 255, 0.2);
+}
+
+.callouts .box.accent {
+  background: #fff6ff;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 138, 238, 0.25);
+  height: 100%;
+}
+
+.final-cta {
+  background: #1f2933;
+  color: #fff;
+}
+
+.final-cta .button.is-primary {
+  background: linear-gradient(135deg, #ff8aee, #734bff);
+  border: none;
+  box-shadow: 0 12px 25px rgba(115, 75, 255, 0.35);
+}
+
+.footer {
+  background: #0f172a;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 1023px) {
+  .floating-badge {
+    position: static;
+    margin-top: 1.5rem;
+  }
+
+  .floating-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero .buttons {
+    justify-content: center;
+  }
+
+  .hero-benefits {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+  }
+
+  .hero-benefits {
+    justify-items: center;
+  }
+
+  .feature-section .box.highlight,
+  .callouts .box.accent {
+    text-align: center;
+  }
 }
