@@ -1,0 +1,11 @@
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+}
+
+.notification {
+  margin-top: 2rem;
+}
