@@ -5,30 +5,31 @@
   line-height: 1.6;
   font-weight: 400;
   color-scheme: dark;
-  color: #e2e8f0;
-  background-color: #020617;
+  color: #f5f7fa;
+  background-color: #0b1020;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  background-color: #020617;
-}
-
 a {
   font-weight: 600;
-  color: #a855f7;
+  color: #4cc9f0;
   text-decoration: none;
 }
 
 a:hover {
-  color: #c084fc;
+  color: #00bfa6;
 }
 
 #root {
   min-height: 100vh;
-  background-color: #020617;
+  background-color: #0b1020;
+}
+
+body {
+  margin: 0;
+  background-color: #0b1020;
+  color: #f5f7fa;
 }
