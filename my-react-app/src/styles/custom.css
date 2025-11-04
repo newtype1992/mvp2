@@ -12,26 +12,315 @@
   color: #e2e8f0;
 }
 
+.swift-navbar-wrapper {
+  position: relative;
+  z-index: 80;
+}
+
 .swift-navbar {
-  background: rgba(7, 14, 33, 0.9);
+  background: rgba(7, 14, 33, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.22);
+  box-shadow: 0 12px 40px rgba(2, 6, 23, 0.45);
 }
 
-.swift-navbar .navbar-item,
-.swift-navbar .navbar-link {
-  color: #cbd5f5;
+.swift-navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding-block: 0.85rem;
 }
 
-.swift-navbar .navbar-item.is-active,
-.swift-navbar .navbar-item:hover {
+.navbar-brand-link {
+  font-weight: 700;
   color: #f8fafc;
-  background: rgba(124, 58, 237, 0.15);
-  border-radius: 8px;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
 }
 
-.swift-navbar .navbar-burger span {
+.navbar-brand-link:focus-visible {
+  outline: 2px solid rgba(124, 58, 237, 0.55);
+  outline-offset: 3px;
+}
+
+.swift-navbar__links {
+  display: none;
+  flex: 1 1 auto;
+}
+
+.swift-navbar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+
+.swift-navbar__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.swift-navbar__item.has-dropdown {
+  align-items: stretch;
+}
+
+.swift-navbar__link {
+  background: transparent;
+  border: none;
+  color: #cbd5f5;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.75rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.swift-navbar__link:hover,
+.swift-navbar__link:focus-visible {
+  color: #f8fafc;
+  background: rgba(124, 58, 237, 0.25);
+  outline: none;
+}
+
+.swift-navbar__link.is-active {
+  color: #f8fafc;
+  background: rgba(124, 58, 237, 0.35);
+}
+
+.swift-navbar__link--parent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.swift-navbar__chevron {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.swift-navbar__chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.swift-navbar__dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 0;
+  min-width: 210px;
+  background: rgba(9, 14, 29, 0.97);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 0.9rem;
+  box-shadow: 0 22px 40px rgba(2, 6, 23, 0.45);
+  padding: 0.65rem;
+  list-style: none;
+  margin: 0;
+  z-index: 75;
+}
+
+.swift-navbar__dropdown.is-open {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.swift-navbar__dropdown-link {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  color: #dbeafe;
+  font-weight: 600;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.65rem;
+  transition: background 0.2s ease;
+}
+
+.swift-navbar__dropdown-link:hover,
+.swift-navbar__dropdown-link:focus-visible {
+  background: rgba(124, 58, 237, 0.28);
+  outline: none;
+}
+
+.swift-navbar__dropdown-link.is-active {
+  background: rgba(124, 58, 237, 0.4);
+  color: #f8fafc;
+}
+
+.swift-navbar__item.is-active > .swift-navbar__link--parent {
+  background: rgba(124, 58, 237, 0.35);
+  color: #f8fafc;
+}
+
+.swift-navbar__cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.swift-navbar__secondary {
+  color: #a5b4fc;
+  padding: 0.35rem 0.5rem;
+}
+
+.swift-navbar__secondary:hover,
+.swift-navbar__secondary:focus-visible {
+  color: #f8fafc;
+  text-decoration: underline;
+}
+
+.swift-navbar__cta-button {
+  min-width: 8.5rem;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 14px 28px rgba(124, 58, 237, 0.35);
+}
+
+.swift-navbar__cta-button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.45);
+}
+
+.navbar-burger-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+}
+
+.navbar-burger {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.8rem;
+  background: rgba(124, 58, 237, 0.18);
+  transition: background 0.2s ease;
+}
+
+.navbar-burger span {
   background-color: #e2e8f0;
+}
+
+.navbar-burger:hover,
+.navbar-burger:focus-visible {
+  background: rgba(124, 58, 237, 0.28);
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 65;
+}
+
+.nav-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(90vw, 320px);
+  background: rgba(9, 14, 29, 0.97);
+  border-left: 1px solid rgba(124, 58, 237, 0.25);
+  transform: translateX(100%);
+  transition: transform 0.32s ease;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: calc(1.75rem + env(safe-area-inset-top, 0)) 1.5rem calc(2rem + env(safe-area-inset-bottom, 0));
+}
+
+.sidebar-drawer.is-active {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sidebar-link {
+  width: 100%;
+  text-align: left;
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  color: #e2e8f0;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.85rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus-visible {
+  background: rgba(124, 58, 237, 0.3);
+  border-color: rgba(124, 58, 237, 0.35);
+  outline: none;
+}
+
+.sidebar-link.is-active {
+  background: rgba(124, 58, 237, 0.45);
+  border-color: rgba(124, 58, 237, 0.5);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.sidebar-footer .button {
+  box-shadow: 0 18px 35px rgba(124, 58, 237, 0.45);
+}
+
+@media (min-width: 1024px) {
+  .swift-navbar__links {
+    display: block;
+  }
+
+  .swift-navbar__inner {
+    gap: 1.75rem;
+  }
+
+  .navbar-burger-wrapper {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .swift-navbar__secondary {
+    display: none;
+  }
+
+  .swift-navbar__cta-button {
+    font-size: 0.9rem;
+    padding: 0.55rem 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .swift-navbar__cta-button {
+    min-width: 7.5rem;
+    font-size: 0.85rem;
+    padding: 0.45rem 0.85rem;
+  }
 }
 
 .button-reset {
