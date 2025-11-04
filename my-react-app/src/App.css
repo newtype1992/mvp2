@@ -1,11 +1,11 @@
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  background: #f5f7fb;
-  color: #1f2933;
+  background: #040814;
+  color: #e2e8f0;
 }
 
 .swift-slots .hero {
@@ -14,17 +14,17 @@ body {
 }
 
 .hero-gradient {
-  background: radial-gradient(circle at top right, #ff8aee 0%, #734bff 40%, #2b1b7d 100%);
-  color: #fff;
+  background: radial-gradient(circle at top right, #6a0dfa 0%, #3b1ca8 35%, #0a1535 100%);
+  color: #f8fafc;
 }
 
 .hero-gradient::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 60%),
-    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.2), transparent 55%),
-    radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.18), transparent 60%);
+  background: radial-gradient(circle at 20% 20%, rgba(148, 163, 255, 0.25), transparent 60%),
+    radial-gradient(circle at 80% 10%, rgba(226, 232, 255, 0.2), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(148, 163, 255, 0.18), transparent 60%);
   pointer-events: none;
 }
 
@@ -34,8 +34,8 @@ body {
 }
 
 .tag.is-light {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 255, 0.35);
   color: #fff;
   backdrop-filter: blur(6px);
 }
@@ -86,7 +86,7 @@ body {
 }
 
 .timeline-item {
-  color: #fff;
+  color: #f8fafc;
 }
 
 .timeline-item .time {
@@ -113,45 +113,46 @@ body {
 }
 
 .badge.is-success {
-  background: rgba(59, 255, 166, 0.25);
+  background: rgba(34, 197, 94, 0.25);
 }
 
 .badge.is-warning {
-  background: rgba(255, 201, 75, 0.25);
+  background: rgba(250, 204, 21, 0.3);
 }
 
 .floating-badge {
   position: absolute;
   bottom: -1.5rem;
   right: 2rem;
-  background: #ffffff;
-  color: #1f2933;
+  background: #10172a;
+  color: #e2e8f0;
   border-radius: 1rem;
   padding: 1.25rem 1.75rem;
-  box-shadow: 0 18px 35px rgba(31, 41, 51, 0.18);
+  box-shadow: 0 18px 35px rgba(2, 6, 23, 0.35);
 }
 
 .feature-section .box.highlight {
   border-radius: 1.25rem;
   box-shadow: none;
-  border: 1px solid rgba(115, 75, 255, 0.15);
-  background: #ffffff;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: #111827;
   height: 100%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feature-section .box.highlight:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 35px rgba(115, 75, 255, 0.12);
+  box-shadow: 0 18px 35px rgba(79, 70, 229, 0.25);
 }
 
 .feature-section .icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  color: #c7d2fe;
 }
 
 .how-it-works {
-  background: #fff;
+  background: #0b1225;
 }
 
 .steps {
@@ -162,11 +163,11 @@ body {
 }
 
 .step {
-  background: #f0f3ff;
+  background: #121c3b;
   padding: 2rem;
   border-radius: 1.5rem;
   position: relative;
-  box-shadow: 0 15px 30px rgba(115, 75, 255, 0.08);
+  box-shadow: 0 15px 30px rgba(30, 64, 175, 0.25);
 }
 
 .step-number {
@@ -178,14 +179,14 @@ body {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #ff8aee, #734bff);
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
   color: #fff;
   font-weight: 700;
-  box-shadow: 0 10px 20px rgba(115, 75, 255, 0.25);
+  box-shadow: 0 10px 20px rgba(76, 29, 149, 0.4);
 }
 
 .business-benefits {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(244, 240, 255, 0.7));
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
 }
 
 .benefit-list {
@@ -202,11 +203,12 @@ body {
 .business-card {
   border-radius: 1.5rem;
   border: none;
-  box-shadow: 0 25px 45px rgba(115, 75, 255, 0.18);
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 25px 45px rgba(15, 23, 42, 0.35);
 }
 
 .pricing-pill {
-  background: rgba(115, 75, 255, 0.1);
+  background: rgba(59, 130, 246, 0.12);
   padding: 1.5rem;
   border-radius: 1.25rem;
   height: 100%;
@@ -214,14 +216,15 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border: 1px solid rgba(115, 75, 255, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.25);
 }
 
 .callouts .box.accent {
-  background: #fff6ff;
+  background: #111827;
   border-radius: 1.25rem;
-  border: 1px solid rgba(255, 138, 238, 0.25);
+  border: 1px solid rgba(168, 85, 247, 0.25);
   height: 100%;
+  box-shadow: 0 18px 35px rgba(17, 24, 39, 0.2);
 }
 
 .final-cta {
@@ -230,14 +233,14 @@ body {
 }
 
 .final-cta .button.is-primary {
-  background: linear-gradient(135deg, #ff8aee, #734bff);
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
   border: none;
-  box-shadow: 0 12px 25px rgba(115, 75, 255, 0.35);
+  box-shadow: 0 12px 25px rgba(76, 29, 149, 0.4);
 }
 
 .footer {
-  background: #0f172a;
-  color: rgba(255, 255, 255, 0.7);
+  background: #020617;
+  color: rgba(226, 232, 240, 0.75);
 }
 
 @media (max-width: 1023px) {
